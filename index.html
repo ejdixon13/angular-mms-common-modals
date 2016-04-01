@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="angular-mms-common-modals">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular Common Modals</title>
+
+    <link rel="stylesheet" href="/dist/angular-mms-common-modals.css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <!--bower:css-->
+    <!--endbower-->
+    <!-- inject:css -->
+    <!-- endinject -->
+</head>
+<body>
+
+<div ng-controller="ctrl as vm">
+    Test: {{vm.test}}
+    <button ng-click="vm.openAlert()">Open Alert</button>
+    <button ng-click="vm.openConfirm()">Open Confirm</button>
+    <button ng-click="vm.openDirtyChecker()">Open Dirty Checker</button>
+    <button ng-click="vm.openLoadingBackdrop()">Open Loading Backdrop</button>
+    <button ng-click="vm.openWarningBeforeAction()">Open Warning Before Action</button>
+
+
+</div>
+
+<!--bower:js-->
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="lib/spin.js/spin.js"></script>
+<script src="lib/angular-spinner/angular-spinner.js"></script>
+<!--endbower-->
+
+<!-- inject:js -->
+<script src="src/common-modal-service.js"></script>
+<script src="src/alert/alert-modal-ctrl.js"></script>
+<script src="src/confirm/confirm-modal-ctrl.js"></script>
+<script src="src/dirtyChecker/dirty-checker-modal-ctrl.js"></script>
+<script src="src/loadingBackdrop/loading-backdrop-modal-ctrl.js"></script>
+<script src="src/warningBeforeAction/warning-before-action-modal-ctrl.js"></script>
+<!-- endinject -->
+
+<script type="application/javascript">
+    angular.module('angular-mms-common-modals').controller('ctrl', ['ModalService', '$q', '$timeout', function(ModalService, $q, $timeout){
+        var vm = this;
+        vm.test = 'Test Complete';
+        vm.openAlert = openAlert;
+        vm.openConfirm = openConfirm;
+        vm.openDirtyChecker = openDirtyChecker;
+        vm.openLoadingBackdrop = openLoadingBackdrop;
+        vm.openWarningBeforeAction = openWarningBeforeAction;
+
+        function openAlert() {
+            ModalService.openAlert('Alert','Body of alert.');
+        }
+
+        function openConfirm() {
+            ModalService.openConfirm('What?', 'Yeah');
+        }
+
+        function openDirtyChecker() {
+            ModalService.openDirtyChecker('/#');
+        }
+
+        function openLoadingBackdrop() {
+            var deferred = $q.defer();
+            $timeout(function(){
+                deferred.resolve();
+            }, 4000);
+            ModalService.openLoadingBackdrop('Loading...', deferred).result.then(function(){
+                var a;
+            });
+        }
+
+        function openWarningBeforeAction() {
+            ModalService.openWarningBeforeAction('Warning', 'This is a warning!', 'Do you realy want to do something?');
+        }
+    }])
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<div class="modal-header">
+    <div style="float: right"><close-icon ng-click="vm.close()"></close-icon></div>
+    <h4 class="modal-title">Unsaved Changes</h4>
+</div>
+<div class="modal-body">
+    You have unsaved changes. Before continuing, what would you like to do with your changes?
+</div>
+<div class="modal-footer">
+    <span ng-if="vm.invalidDataForSaveBoolean">(Cannot save because invalid data exists in your form.)</span>
+    <button id="yesModalButton"
+            ng-disabled="vm.invalidDataForSaveBoolean"
+            class="btn {{(vm.confirmBtnClass) ? vm.confirmBtnClass : 'btn-danger'}}"
+            data-ng-click="vm.confirm()">{{(vm.confirmBtnText) ? vm.confirmBtnText : 'Yes'}}</button>
+    <button id="noModalButton"
+            class="btn {{(vm.declineBtnClass) ? vm.declineBtnClass : 'btn-default'}}"
+            data-ng-click="vm.decline()">{{(vm.declineBtnText) ? vm.declineBtnText : 'No'}}</button>
+</div>

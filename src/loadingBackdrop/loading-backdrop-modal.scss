@@ -1,0 +1,31 @@
+.loading-backdrop-modal {
+    .fade {
+        opacity: 1;
+    }
+
+    .loading-backdrop {
+        position: absolute;
+        top: 40vh;
+        left: 13vw;
+    }
+
+    .loading-spinner {
+        position: absolute;
+        margin-left: -25px;
+        top: 12px;
+        .spinner {
+            div{
+                div:first-child {
+                    background: white !important;
+                }
+            }
+        }
+    }
+
+    .loading-text {
+        position: relative;
+        margin-left: 10px;
+        font-size: 18px;
+        color: whitesmoke;
+    }
+}

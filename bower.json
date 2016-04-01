@@ -1,0 +1,10 @@
+{
+  "name": "angular-common-modals",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.4.6",
+    "angular-bootstrap": "^1.2.5",
+    "angular-ui-router": "^0.2.18",
+    "angular-spinner": "^0.8.1"
+  }
+}
