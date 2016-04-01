@@ -24,10 +24,10 @@ Load the script files in your application:
 ```html
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-common-modals/dist/angular-mms-common-modals.min.js"></script>
-<script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-<script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
-<script src="lib/spin.js/spin.js"></script>
-<script src="lib/angular-spinner/angular-spinner.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/spin.js/spin.js"></script>
+<script src="bower_components/angular-spinner/angular-spinner.js"></script>
 ```
 
 Add the specific module to your dependencies:
