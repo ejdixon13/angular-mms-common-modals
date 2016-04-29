@@ -7,13 +7,13 @@
            class="lumen-icon__graphic lumen-icon__graphic--warning modal-icon"></i>
     </div>
     <div class="heading-5 col-xs-11">
-        <div><strong>{{::vm.modalWarning}}</strong></div>
+        <div>{{::vm.modalWarning}}</div>
         <br/>
         <div class="heading-5">{{::vm.modalQuestion}}</div>
     </div>
 
 </div>
 <div class="modal-footer">
-    <button id="yesModalButton" class="btn btn-danger" data-ng-click="vm.confirm()">Yes</button>
+    <button id="yesModalButton" class="btn btn-primary" data-ng-click="vm.confirm()">Yes</button>
     <button id="noModalButton" class="btn btn-default" data-ng-click="vm.decline()">No</button>
 </div>
