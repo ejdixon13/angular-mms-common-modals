@@ -7,13 +7,13 @@
     angular
         .module('angular-mms-common-modals')
         .controller('ConfirmRemoveModalCtrl', ConfirmRemoveModalCtrl);
-    ConfirmRemoveModalCtrl.$inject = ['$uibModalInstance', 'modalTitle', 'modalBody'];
+    ConfirmRemoveModalCtrl.$inject = ['$uibModalInstance', 'modalTitle', 'modalBody', '$sce'];
 
     //CONTROLLER
-    function ConfirmRemoveModalCtrl($uibModalInstance, modalTitle, modalBody) {
+    function ConfirmRemoveModalCtrl($uibModalInstance, modalTitle, modalBody, $sce) {
         var vm = this;
         vm.modalTitle = modalTitle;
-        vm.modalBody = modalBody;
+        vm.modalBody = $sce.trustAsHtml(modalBody);
         vm.confirm = function () {
             $uibModalInstance.close();
         };
