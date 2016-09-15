@@ -9,6 +9,7 @@
     <span ng-if="vm.invalidDataForSaveBoolean">(Cannot save because invalid data exists in your form.)</span>
     <button id="yesModalButton"
             ng-disabled="vm.invalidDataForSaveBoolean"
+            autofocus
             class="btn {{(vm.confirmBtnClass) ? vm.confirmBtnClass : 'btn-danger'}}"
             data-ng-click="vm.confirm()">{{(vm.confirmBtnText) ? vm.confirmBtnText : 'Yes'}}</button>
     <button id="noModalButton"
